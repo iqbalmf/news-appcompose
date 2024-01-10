@@ -1,4 +1,4 @@
-package com.loc.newsapp
+package net.iqbalfauzan.newsapp
 
 import org.junit.Test
 

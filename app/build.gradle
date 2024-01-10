@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.loc.newsapp'
+    namespace 'net.iqbalfauzan.news_app'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.loc.newsapp"
+        applicationId "net.iqbalfauzan.news_app"
         minSdk 24
         targetSdk 33
         versionCode 1
