@@ -54,59 +54,47 @@ android {
 
 dependencies {
 
-    implementation ("androidx.core:core-ktx:1.12.0")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation ("androidx.activity:activity-compose:1.8.2")
-    implementation ("androidx.compose.ui:ui")
-    implementation ("androidx.compose.ui:ui-graphics")
-    implementation ("androidx.compose.ui:ui-tooling-preview")
-    implementation ("androidx.compose.material3:material3:1.1.2")
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation ("androidx.compose.ui:ui-test-junit4")
-    debugImplementation ("androidx.compose.ui:ui-tooling")
-    debugImplementation ("androidx.compose.ui:ui-test-manifest")
-
+    implementation (Dependencies.coreKtx)
+    implementation (Dependencies.lifeCycleKtx)
+    implementation (Dependencies.activityCompose)
+    implementation (Dependencies.composeUi)
+    implementation (Dependencies.composeUiGraphics)
+    implementation (Dependencies.composeUiPreview)
+    implementation (Dependencies.composeMaterial3)
+    testImplementation (Dependencies.jUnit)
+    androidTestImplementation (Dependencies.jUnitAndroid)
+    androidTestImplementation (Dependencies.espressoTest)
+    androidTestImplementation (Dependencies.jUnitCompose)
+    debugImplementation (Dependencies.uiTooling)
+    debugImplementation (Dependencies.uiTestManifest)
     //Splash Api
-    implementation ("androidx.core:core-splashscreen:1.0.1")
-
+    implementation (Dependencies.splashScreen)
     //Compose Navigation
-    val navVersion = "2.7.6"
-    implementation ("androidx.navigation:navigation-compose:$navVersion")
-
+    implementation (Dependencies.navigationCompose)
     //Dagger Hilt
-    implementation ("com.google.dagger:hilt-android:2.48")
-    kapt ("com.google.dagger:hilt-compiler:2.45")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
-
-
+    implementation (Dependencies.hiltAndroid)
+    kapt (Dependencies.hiltCompiler)
+    implementation (Dependencies.hiltNavigationCompose)
     //Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-
+    implementation (Dependencies.retrofit)
+    implementation (Dependencies.retrofitConverterGson)
     //Coil
-    implementation("io.coil-kt:coil-compose:2.5.0")
-
+    implementation(Dependencies.coil)
     //Datastore
-    implementation ("androidx.datastore:datastore-preferences:1.0.0")
-
+    implementation (Dependencies.dataStorePreference)
     //Compose Foundation
-    implementation ("androidx.compose.foundation:foundation:1.6.0")
-
+    implementation (Dependencies.foundationCompose)
     //Accompanist
-    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta")
-
+    implementation (Dependencies.accompanist)
     //Paging 3
-    val pagingVersion = "3.2.1"
-    implementation ("androidx.paging:paging-runtime-ktx:$pagingVersion")
-    implementation ("androidx.paging:paging-compose:3.2.0-rc01")
-
+    implementation (Dependencies.paging)
+    implementation (Dependencies.pagingCompose)
     //Room
-    val roomVersion = "2.6.1"
-    implementation ("androidx.room:room-runtime:$roomVersion")
-    kapt ("androidx.room:room-compiler:$roomVersion")
-    implementation ("androidx.room:room-ktx:2.6.1")
+    implementation (Dependencies.room)
+    kapt (Dependencies.roomCompiler)
+    implementation (Dependencies.roomKtx)
+
+    implementation(project(Modules.utilities))
 }
 
 kapt {
