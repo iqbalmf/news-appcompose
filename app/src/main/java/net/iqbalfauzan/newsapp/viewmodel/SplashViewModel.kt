@@ -6,6 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.iqbalfauzan.newsapp.data.DataStoreRepository
 import net.iqbalfauzan.newsapp.ui.navigation.Screen
@@ -24,7 +26,7 @@ class SplashViewModel @Inject constructor(
     val startDestination: State<String> = _startDestination
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.readOnBoardingState().collect {
                 if (it) {
                     _startDestination.value = Screen.Home.route
