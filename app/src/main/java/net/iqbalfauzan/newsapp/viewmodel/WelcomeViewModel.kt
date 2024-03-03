@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import net.iqbalfauzan.newsapp.data.DataStoreRepository
+import net.iqbalfauzan.newsapp.domain.usecase.GetOnBoardingCacheUseCase
 import javax.inject.Inject
 
 /**
@@ -14,7 +14,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class WelcomeViewModel @Inject constructor(
-    private val dataStoreRepository: DataStoreRepository
+    private val dataStoreRepository: GetOnBoardingCacheUseCase
 ) : ViewModel() {
     fun saveOnBoardingState(complete: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {

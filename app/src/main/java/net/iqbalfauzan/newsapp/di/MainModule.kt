@@ -6,7 +6,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import net.iqbalfauzan.newsapp.data.DataStoreRepository
+import net.iqbalfauzan.newsapp.data.datasource.LocalDataSource
+import net.iqbalfauzan.newsapp.data.datasource.LocalDataSourceImpl
+import net.iqbalfauzan.newsapp.data.repository.DataStoreRepository
 import javax.inject.Singleton
 
 /**
@@ -20,4 +22,10 @@ object MainModule {
     @Singleton
     fun providesDataStoreRepository(@ApplicationContext context: Context) =
         DataStoreRepository(context = context)
+
+    @Provides
+    @Singleton
+    fun provideLocalDataSource(@ApplicationContext context: Context): LocalDataSource {
+        return LocalDataSourceImpl(context)
+    }
 }

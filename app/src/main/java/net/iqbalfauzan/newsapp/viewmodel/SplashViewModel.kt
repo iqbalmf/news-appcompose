@@ -7,9 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import net.iqbalfauzan.newsapp.data.DataStoreRepository
+import net.iqbalfauzan.newsapp.domain.usecase.GetOnBoardingCacheUseCase
 import net.iqbalfauzan.newsapp.ui.navigation.Screen
 import javax.inject.Inject
 
@@ -18,7 +17,7 @@ import javax.inject.Inject
  * Package net.iqbalfauzan.newsapp.viewmodel
  */
 class SplashViewModel @Inject constructor(
-    private val repository: DataStoreRepository
+    private val repository: GetOnBoardingCacheUseCase
 ) : ViewModel() {
     private val _isLoading: MutableState<Boolean> = mutableStateOf(true)
     val isLoading: State<Boolean> = _isLoading
@@ -27,7 +26,7 @@ class SplashViewModel @Inject constructor(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.readOnBoardingState().collect {
+            repository.getOnBoradingState().collect {
                 if (it) {
                     _startDestination.value = Screen.Home.route
                 } else {
